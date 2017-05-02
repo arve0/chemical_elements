@@ -1,0 +1,30 @@
+{
+  "name": "chemical_elements",
+  "version": "0.0.1",
+  "description": "images of chemical elements, like the squares in the periodic table",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js > bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arve0/chemical_elements.git"
+  },
+  "keywords": [
+    "chemical",
+    "elements",
+    "png"
+  ],
+  "author": "Arve Seljebu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arve0/chemical_elements/issues"
+  },
+  "homepage": "https://github.com/arve0/chemical_elements#readme",
+  "dependencies": {
+    "periodic-table": "0.0.8"
+  },
+  "devDependencies": {
+    "browserify": "^14.3.0"
+  }
+}
