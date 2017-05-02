@@ -1,18 +1,37 @@
 const periodicTable = require('periodic-table');
 const electronsPerShell = require('./electrons-per-shell.js');
 
-const input = document.getElementsByTagName("input")[0];
-const output = document.getElementById("output");
-input.onkeyup = onKeyUp;
+const inputs = {
+  chemicalSymbol: document.getElementById('chemical-symbol'),
+  atomicNumber: document.getElementById('atomic-number'),
+  nucleons: document.getElementById('nucleons'),
+  electronConfiguration: document.getElementById('electron-configuration')
+};
 
-onKeyUp();
+const output = document.getElementById('output');
+inputs.chemicalSymbol.onkeyup = onSymbolKeyUp;
+inputs.atomicNumber.onkeyup = onAtomicNumberKeyUp;
 
-function onKeyUp (event) {
-  let symbol = capitalize(input.value);
-  if (symbol in periodicTable.symbols) {
-    let el = ChemicalElement(periodicTable.symbols[symbol]);
-    output.innerHTML = el;
-  }
+onSymbolKeyUp();
+
+function onSymbolKeyUp (event) {
+  let symbol = capitalize(inputs.chemicalSymbol.value);
+  let element = getElement({ type: 'symbol', value: symbol });
+  output.innerHTML = ChemicalElement(element);
+}
+
+function onAtomicNumberKeyUp (event) {
+  let atomicNumber = capitalize(inputs.atomicNumber.value);
+  let element = getElement({ type: 'atomicNumber', value: atomicNumber });
+  output.innerHTML = ChemicalElement(element);
+}
+
+function getElement (by) {
+  let lookup = (by.type === 'symbol') ? 'symbols' : 'numbers';
+
+  return (periodicTable[lookup] && by.value in periodicTable[lookup]) ?
+    periodicTable[lookup][by.value] :
+    Object.assign({}, periodicTable.symbols.H, { [by.type]: by.value });
 }
 
 function capitalize (str) {
@@ -24,7 +43,7 @@ function ChemicalElement (props) {
     props.atomicMass[0] : parseInt(props.atomicMass);
 
   return `
-    <div class=chemicalElement>
+    <div class=chemical-element>
       <div class=left>
         <span class=atomicMass>${mass}</span>
         <span class=symbol>${props.symbol}</span>

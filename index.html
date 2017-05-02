@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    .chemicalElement {
+    .chemical-element {
       margin: 20px;
       border: solid 1px;
       padding: 10px;
@@ -29,14 +29,30 @@
       padding-left: 10px;
     }
 
-    label {
+    .inputs {
+      display: inline-flex;
+      flex-direction: column;
+    }
+
+    .inputs label {
       font-weight: bold;
+    }
+
+    .inputs input {
+      margin-bottom: 15px;
+      padding: 8px;
+      font-size: 14px;
     }
   </style>
 </head>
 
 <body>
-  <label>Chemical symbol <input type=text value=Am></label>
+  <div class=inputs>
+    <label for=chemical-element>Chemical symbol </label><input type=text value=Am id=chemical-symbol>
+    <label for=atomic-number>Atomic number </label><input type=number id=atomic-number>
+    <label for=nucleons>Number of nucleons </label><input type=number id=nucleons>
+    <label for=electron-configuration>Electron configuration </label><input type=text id=electron-configuration>
+  </div>
   <div id=output></div>
   <script src=bundle.js></script>
 </body>
