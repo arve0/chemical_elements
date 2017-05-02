@@ -11,6 +11,7 @@ const inputs = {
 const output = document.getElementById('output');
 inputs.chemicalSymbol.onkeyup = onSymbolKeyUp;
 inputs.atomicNumber.onkeyup = onAtomicNumberKeyUp;
+inputs.atomicNumber.onclick = onAtomicNumberKeyUp;
 
 onSymbolKeyUp();
 
