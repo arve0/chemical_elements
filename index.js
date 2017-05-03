@@ -133,7 +133,7 @@ function readInputs (inputs) {
   return values;
 }
 
-function dom2blob (DOMElement, filename) {
+function dom2blob (DOMElement) {
   let width = DOMElement.offsetWidth;
   let height = DOMElement.offsetHeight;
 
