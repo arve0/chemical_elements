@@ -6,6 +6,8 @@ Create images of chemical elements, showing chemical symbol, number of nucleons,
 
 Try it here: https://arve0.github.io/chemical_elements
 
+![](demo.gif)
+
 
 ## Develop
 
