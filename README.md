@@ -14,13 +14,3 @@ git clone https://github.com/arve0/chemical_elements
 cd chemical_elements
 npm install
 ```
-
-
-## TODO
-
-[ ] Able to edit
-    [ ] atomic number
-    [ ] number of nucleons
-    [ ] electron configuration
-[ ] Lookup by atomic number
-[ ] Fallback when chemical symbol not found

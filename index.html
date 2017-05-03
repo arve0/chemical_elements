@@ -4,29 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <meta http-equiv="Content-Security-Policy" content="img-src * 'self' data: http:;">
+  <title>Create images of chemical elements</title>
   <style>
-    .chemical-element {
-      margin: 20px;
-      border: solid 1px;
-      padding: 10px;
-      display: inline-block;
+    body {
+      display: flex;
     }
 
-    .left,
-    .right {
-      display: inline-flex;
-      flex-direction: column;
-    }
-
-    .right {
-      padding-left: 15px;
-      font-size: 0.8em;
-    }
-
-    .symbol {
-      font-size: 60px;
-      padding-left: 10px;
+    #output {
+      padding: 20px;
     }
 
     .inputs {
@@ -43,15 +29,25 @@
       padding: 8px;
       font-size: 14px;
     }
+
+    .inputs button {
+      margin-bottom: 15px;
+      border: solid 1px;
+      background-color: white;
+      font-size: 0.8em;
+    }
   </style>
 </head>
 
 <body>
   <div class=inputs>
     <label for=chemical-element>Chemical symbol </label><input type=text value=Am id=chemical-symbol>
-    <label for=atomic-number>Atomic number </label><input type=number id=atomic-number>
-    <label for=nucleons>Number of nucleons </label><input type=number id=nucleons>
+    <label for=atomic-number>Atomic number </label><input type=text id=atomic-number>
+    <label for=nucleons>Number of nucleons </label><input type=text id=nucleons>
     <label for=electron-configuration>Electron configuration </label><input type=text id=electron-configuration>
+    <label for=size>Size </label><input type=number value=14 id=size>
+    <button id=download>Download image as SVG</button>
+    <button id=download-png title="Only works in Chrome">Download image as PNG</button>
   </div>
   <div id=output></div>
   <script src=bundle.js></script>
