@@ -21,7 +21,12 @@ const style = `.chemical-element {
     .symbol {
       font-size: 5em;
       padding-left: 0.2em;
-    }`;
+    }
+
+    .link {
+      margin-top: 2em;
+    }
+    `;
 
 
 module.exports = function ChemicalElement (props) {
@@ -36,6 +41,9 @@ module.exports = function ChemicalElement (props) {
       <div class=right>
         ${props.electronsPerShell.map(Span).join('')}
       </div>
+    </div>
+    <div class=link>
+      <a href="https://en.wikipedia.org/wiki/${props.name}">${props.name} on Wikipedia</a>
     </div>`;
 }
 
@@ -226,7 +234,7 @@ function readInputs (inputs) {
   return values;
 }
 
-function dom2blob (DOMElement, filename) {
+function dom2blob (DOMElement) {
   let width = DOMElement.offsetWidth;
   let height = DOMElement.offsetHeight;
 
@@ -1530,7 +1538,7 @@ module.exports.numbers = data.reduce(function(obj, element) {
 }, {});
 
 
-}).call(this,"/node_modules/periodic-table")
+}).call(this,"/node_modules\\periodic-table")
 },{"./data":7,"path":6}],9:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};

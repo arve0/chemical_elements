@@ -20,7 +20,12 @@ const style = `.chemical-element {
     .symbol {
       font-size: 5em;
       padding-left: 0.2em;
-    }`;
+    }
+
+    .link {
+      margin-top: 2em;
+    }
+    `;
 
 
 module.exports = function ChemicalElement (props) {
@@ -35,6 +40,9 @@ module.exports = function ChemicalElement (props) {
       <div class=right>
         ${props.electronsPerShell.map(Span).join('')}
       </div>
+    </div>
+    <div class=link>
+      <a href="https://en.wikipedia.org/wiki/${props.name}">${props.name} on Wikipedia</a>
     </div>`;
 }
 
